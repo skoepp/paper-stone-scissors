@@ -31,6 +31,29 @@
 
         <plugins>
 
+            <plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <version>1.0.2-beta-5</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jsSrcDir>${project.basedir}/src/main/webapp/js</jsSrcDir>
+                    <jsTestSrcDir>${project.basedir}/src/test/webapp/js</jsTestSrcDir>
+                    <sourceIncludes>
+                        <include>**/*.js</include>
+                    </sourceIncludes>
+                    <specIncludes>
+                        <include>specs/*_specs.js</include>
+                    </specIncludes>
+                </configuration>
+            </plugin>
 
         </plugins>
     </build>
