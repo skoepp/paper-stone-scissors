@@ -1,5 +1,12 @@
-// Karma configuration
-// Generated on Fri Nov 01 2013 12:45:36 GMT+0100 (CET)
+/**
+ *
+ * File    :
+ * Project : puzzle
+ *
+ * Created by Stephan Koepp on 11/22/13.
+ * Copyright 2013 Stephan Koepp. All rights reserved.
+ *
+ */
 
 module.exports = function (config) {
     config.set({
