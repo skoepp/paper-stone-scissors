@@ -8,6 +8,12 @@
 **/.idea
 *.iml
 
+# Test coverage
+src/coverage
+
+# node modules
+node_modules/
+
 # compiled files
 target
 

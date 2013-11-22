@@ -22,7 +22,7 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             "main/webapp/js/**/*.js",
-            "test/webapp/js/specs/*_spec.js"
+            "test/webapp/js/specs/*_specs.js"
         ],
 
 
