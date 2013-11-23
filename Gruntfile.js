@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         clean: {
-            dist: ['src/main/webapp/dist/css']
+            dist: ['src/main/webapp/dist/**/*']
         },
 
         jshint: {
@@ -35,21 +35,18 @@ module.exports = function(grunt) {
         },
 
         concat: {
-            options: {
-                //banner: '<%= banner %><%= jqueryCheck %>',
-                //stripBanners: false
-            },
+            options: {},
             puzzle: {
                 src: [
+                    'src/resources/vendor/jquery/jquery.min.js',
                     'src/resources/js/card.js'
                 ],
-                dest: 'src/main/webapp/dist/js/<%= pkg.name %>.js'
+                dest: 'src/resources/js/<%= pkg.name %>.js'
             }
         },
 
         uglify: {
             options: {
-                //banner: '<%= banner %>',
                 report: 'min'
             },
             puzzle: {
@@ -61,13 +58,8 @@ module.exports = function(grunt) {
         recess: {
             options: {
                 compile: true
-                //banner: '<%= banner %>'
             },
             puzzle: {
-                src: ['src/resources/less/puzzle.less'],
-                dest: 'src/main/webapp/dist/css/<%= pkg.name %>.css'
-            },
-            min: {
                 options: {
                     compress: true
                 },
