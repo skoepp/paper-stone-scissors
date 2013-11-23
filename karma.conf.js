@@ -9,20 +9,23 @@
  */
 
 module.exports = function (config) {
+
+    'use strict';
+
     config.set({
 
         // base path, that will be used to resolve files and exclude
-        basePath: "src/",
+        basePath: 'src/',
 
 
         // frameworks to use
-        frameworks: ["jasmine"],
+        frameworks: ['jasmine'],
 
 
         // list of files / patterns to load in the browser
         files: [
-            "main/webapp/js/**/*.js",
-            "test/webapp/js/specs/*_specs.js"
+            'resources/js/*.js',
+            'test/jasmine/specs/*_specs.js'
         ],
 
 
@@ -31,18 +34,17 @@ module.exports = function (config) {
 
 
         preprocessors: {
-            "main/webapp/js/**/*.js": "coverage",
-            "main/webapp/js/*.js": "coverage"
+            'resources/js/*.js': 'coverage'
         },
 
         coverageReporter: {
-            type: "html",
-            dir: "coverage/"
+            type: 'html',
+            dir: 'coverage/'
         },
 
         // test results reporter to use
-        // possible values: "dots", "progress", "junit", "growl", "coverage"
-        reporters: ["dots", "coverage"],
+        // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
+        reporters: ['dots', 'coverage'],
 
 
         // web server port
@@ -70,7 +72,7 @@ module.exports = function (config) {
         // - Safari (only Mac)
         // - PhantomJS
         // - IE (only Windows)
-        browsers: ["PhantomJS"],
+        browsers: ['PhantomJS'],
 
 
         // If browser does not capture in given timeout [ms], kill it

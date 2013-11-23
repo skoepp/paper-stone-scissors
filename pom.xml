@@ -44,8 +44,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <jsSrcDir>${project.basedir}/src/main/webapp/js</jsSrcDir>
-                    <jsTestSrcDir>${project.basedir}/src/test/webapp/js</jsTestSrcDir>
+                    <jsSrcDir>${project.basedir}/src/resources/js</jsSrcDir>
+                    <jsTestSrcDir>${project.basedir}/src/test/jasmine</jsTestSrcDir>
                     <sourceIncludes>
                         <include>**/*.js</include>
                     </sourceIncludes>
