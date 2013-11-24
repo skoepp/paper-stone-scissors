@@ -23,7 +23,105 @@
         <![endif]-->
     </head>
     <body>
-        <h2>Hello World</h2>
+
+        <header class="navbar navbar-inverse navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Puzzel Project</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Reset counter</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Player Mode <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Person vs Computer</a></li>
+                                <li><a href="#">Computer vs Computer</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Variant 1</a></li>
+                                <li><a href="#">Variant 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="h-left-indent">Player 1 won.</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <h4>Player 1</h4>
+                    </div>
+                    <div class="col-xs-6">
+                        <h4>Computer</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-bottom-space">
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <span class="label label-success">Won : 0 </span><br/>
+                        <span class="label label-default">Draw : 0</span><br/>
+                        <span class="label label-danger">Lost : 0</span>
+                    </div>
+                    <div class="col-xs-6">
+                        <span class="label label-success">Won : 0 </span><br/>
+                        <span class="label label-default">Draw : 0</span><br/>
+                        <span class="label label-danger">Lost : 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-bottom-space">
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
+                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
+                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
+                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
+                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4 class="h-left-indent">Start a new game by selection.</h4>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="container">
+            <div class="row">
+                <div class="col-md-12"><p>&nbsp;</p></div>
+            </div>
+        </footer>
+
         <script src="./dist/js/puzzle.min.js"></script>
     </body>
 </html>

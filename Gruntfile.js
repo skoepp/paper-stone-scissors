@@ -39,6 +39,10 @@ module.exports = function(grunt) {
             puzzle: {
                 src: [
                     'src/resources/vendor/jquery/jquery.min.js',
+                    'src/resources/vendor/bootstrap/js/transition.js',
+                    'src/resources/vendor/bootstrap/js/button.js',
+                    'src/resources/vendor/bootstrap/js/collapse.js',
+                    'src/resources/vendor/bootstrap/js/dropdown.js',
                     'src/resources/js/card.js'
                 ],
                 dest: 'src/resources/js/<%= pkg.name %>.js'
