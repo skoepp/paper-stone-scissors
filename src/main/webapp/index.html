@@ -37,22 +37,22 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Reset counter</a></li>
+                        <li><a id="resetCounter" href="#">Reset counter</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Player Mode <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Person vs Computer</a></li>
-                                <li><a href="#">Computer vs Computer</a></li>
+                                <li><a href="#" class="playerModus" id="PC">Person vs Computer</a></li>
+                                <li><a href="#" class="playerModus" id="CC">Computer vs Computer</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
+                        <!--li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Variant 1</a></li>
                                 <li><a href="#">Variant 2</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Help</a></li-->
                     </ul>
                 </div>
             </div>
@@ -60,20 +60,39 @@
 
         <div class="container">
 
-
             <div class="row">
                 <div class="col-xs-12">
-                    <h3 class="h-left-indent">Player 1 won.</h3>
+                    <div class="col-xs-6">
+                        <h4>You as Player 1</h4>
+                    </div>
+                    <div class="col-xs-6">
+                        <h4>Computer Player 2</h4>
+                    </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
                     <div class="col-xs-6">
-                        <h4>Player 1</h4>
+                        <span>Selected : </span><span id="selectedValuePlayerOne"></span>
                     </div>
                     <div class="col-xs-6">
-                        <h4>Computer</h4>
+                        <span>Selected : </span><span id="selectedValuePlayerTwo"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-bottom-space">
+                <div class="col-xs-12">
+                    <div id="playerOne-result" class="col-xs-6">
+                        <span class="label label-success">Won : 0 </span><br/>
+                        <span class="label label-default">Draw : 0</span><br/>
+                        <span class="label label-danger">Lost : 0</span>
+                    </div>
+                    <div id="playerTwo-result" class="col-xs-6">
+                        <span class="label label-success">Won : 0 </span><br/>
+                        <span class="label label-default">Draw : 0</span><br/>
+                        <span class="label label-danger">Lost : 0</span>
                     </div>
                 </div>
             </div>
@@ -81,36 +100,17 @@
             <div class="row row-bottom-space">
                 <div class="col-xs-12">
                     <div class="col-xs-6">
-                        <span class="label label-success">Won : 0 </span><br/>
-                        <span class="label label-default">Draw : 0</span><br/>
-                        <span class="label label-danger">Lost : 0</span>
+                        <div id="playerOne-selection" class="btn-group"></div>
                     </div>
                     <div class="col-xs-6">
-                        <span class="label label-success">Won : 0 </span><br/>
-                        <span class="label label-default">Draw : 0</span><br/>
-                        <span class="label label-danger">Lost : 0</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row row-bottom-space">
-                <div class="col-xs-12">
-                    <div class="col-xs-6">
-                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
-                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
-                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
-                    </div>
-                    <div class="col-xs-6">
-                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
-                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
-                        <a class="btn btn-default btn-bottom-space" href="#">Link</a>
+                        <div id="playerTwo-selection" class="btn-group"></div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
-                    <h4 class="h-left-indent">Start a new game by selection.</h4>
+                    <button id="startGame" type="button" class="btn btn-primary">Start game</button>
                 </div>
             </div>
 
@@ -122,6 +122,6 @@
             </div>
         </footer>
 
-        <script src="./dist/js/puzzle.min.js"></script>
+        <script src="./dist/js/puzzle.concat.js"></script>
     </body>
 </html>

@@ -43,9 +43,13 @@ module.exports = function(grunt) {
                     'src/resources/vendor/bootstrap/js/button.js',
                     'src/resources/vendor/bootstrap/js/collapse.js',
                     'src/resources/vendor/bootstrap/js/dropdown.js',
-                    'src/resources/js/card.js'
+                    'src/resources/js/extensions.js',
+                    'src/resources/js/figureType.js',
+                    'src/resources/js/figure.js',
+                    'src/resources/js/figureFactory.js',
+                    'src/resources/js/puzzle.js'
                 ],
-                dest: 'src/resources/js/<%= pkg.name %>.js'
+                dest: 'src/main/webapp/dist/js/<%= pkg.name %>.concat.js'
             }
         },
 
