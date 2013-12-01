@@ -19,8 +19,8 @@ To create the distribution files Grunt is also used:
 **Build project:**
 ==================
 
-You can build the project with maven. Keep in mind that you first must run the grunt dist staement.
-During the maven build the jasmine tests are excecuted.
+You can build the project with maven. Keep in mind that you first must run the grunt dist statement.
+During the maven build the jasmine tests are executed.
 
 **Next steps:**
 ==================
@@ -28,3 +28,4 @@ During the maven build the jasmine tests are excecuted.
  1. Implement inages for the items
  2. Extend game with Spock and lizard
  3. Create template class
+ 4. Include grunt build in maven
