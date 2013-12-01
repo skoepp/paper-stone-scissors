@@ -13,14 +13,28 @@ GameDisplays = function () {
 
     var playerMode;
 
+    /*
+     * Setter for player mode
+     */
     function setPlayerMode (mode) {
         playerMode = mode;
     }
 
+    /*
+     * initialze the game display object
+     *
+     * @param playerMode
+     */
     function init (playerMode) {
         setPlayerMode(playerMode);
     }
 
+    /*
+     * Display method to show the actual reset set for both players.
+     *
+     * @param element : node element
+     * @param results : result String
+     */
     function actualGameResultDisplay (element, result) {
         var person;
 
@@ -46,6 +60,12 @@ GameDisplays = function () {
         }
     }
 
+    /*
+     * Display method for the headline display.
+     * Show the players identification.
+     *
+     * @param element : node element
+     */
     function headlineDisplay (element) {
 
         if (playerMode === 'Human') {
@@ -55,6 +75,12 @@ GameDisplays = function () {
         }
     }
 
+    /*
+     * Display method to show the actual reset set for both players.
+     *
+     * @param element : node element
+     * @param results : result model Object
+     */
     function resultDisplay (element, results) {
 
         var template, output;
@@ -66,6 +92,13 @@ GameDisplays = function () {
         element.html(output);
     }
 
+    /*
+     * Display method to show the selected item for both players.
+     *
+     * @param element : node element
+     * @param valuePlayerOne : Selected item string
+     * @param valuePlayerTwo : Selected item string
+     */
     function showSelectedDisplay (element, valuePlayerOne, valuePlayerTwo) {
 
         var template, output;
@@ -76,10 +109,18 @@ GameDisplays = function () {
         element.html(output);
     }
 
+    /*
+     * Display an information dialog for no item selection
+     */
     function noSelectionDisplay () {
         alert('Please select a item.');
     }
 
+    /*
+     * Method to create buttons with figure types
+     *
+     * @param figureTypes : figure types object (Enum)
+     */
     function createSelectionButtons (figureTypes) {
 
         var figure, out;
@@ -95,6 +136,12 @@ GameDisplays = function () {
         return out;
     }
 
+    /*
+     * Display method to show the selection buttons with item names.
+     *
+     * @param figureTypes : figure types object (Enum)
+     * @param element : node element
+     */
     function selectionDisplay (figureTypes, element) {
 
         var figureList;
