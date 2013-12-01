@@ -512,7 +512,6 @@
  * User: skoepp
  * Date: 25/11/2013
  * Time: 16:19
- * To change this template use File | Settings | File Templates.
  */
 
 /**
@@ -533,6 +532,7 @@ Array.prototype.contains = function (k) {
 
     return false;
 };
+
 /**
  * Created with IntelliJ IDEA.
  * User: skoepp
@@ -541,6 +541,9 @@ Array.prototype.contains = function (k) {
  * To change this template use File | Settings | File Templates.
  */
 
+/**
+ * Enum with figure types
+ */
 var FigureType = {
     STONE : 'Stone',
     PAPER : 'Paper',
@@ -552,9 +555,16 @@ var FigureType = {
  * User: skoepp
  * Date: 25/11/2013
  * Time: 16:21
- * To change this template use File | Settings | File Templates.
  */
 
+/**
+ *
+ * Figure object
+ *
+ * @param figureTypeName
+ * @param figureTypeWon
+ * @param figureTypeLost
+ */
 var Figure = function (figureTypeName, figureTypeWon, figureTypeLost) {
 
     'use strict';
@@ -565,7 +575,7 @@ var Figure = function (figureTypeName, figureTypeWon, figureTypeLost) {
     won = figureTypeWon;
     lost = figureTypeLost;
 
-    function _determineRoundResult (figureOponent){
+    function _determineRoundResult (figureOpponent){
 
         var typeWon, typeLost;
 
@@ -574,9 +584,9 @@ var Figure = function (figureTypeName, figureTypeWon, figureTypeLost) {
 
         if (typeWon === '[object Array]' && typeLost === '[object Array]') {
 
-            if (won.contains(figureOponent.getName())) {
+            if (won.contains(figureOpponent.getName())) {
                 return 'WON';
-            } else if (lost.contains(figureOponent.getName())) {
+            } else if (lost.contains(figureOpponent.getName())) {
                 return 'LOST';
             }
 
@@ -629,6 +639,11 @@ var Figure = function (figureTypeName, figureTypeWon, figureTypeLost) {
  * To change this template use File | Settings | File Templates.
  */
 
+/**
+ * Figure factory
+ *
+ * return:  Firgure object for selected figure type
+ */
 var FigureFactory = {
 
     createFigure: function (figureTyp) {
@@ -646,143 +661,299 @@ var FigureFactory = {
         }
     }
 };
+
 /**
- * Created with IntelliJ IDEA.
- * User: skoepp
- * Date: 25/11/2013
- * Time: 10:52
- * To change this template use File | Settings | File Templates.
+ *
+ * File    :
+ * Project : puzzle
+ *
+ * Created by Stephan Koepp on 11/30/13.
+ * Copyright 2013 Stephan Koepp. All rights reserved.
+ *
  */
-
-var puzzle = {};
-
-var gameModel = puzzle.gameModel = function () {
+var GameResultModel = function () {
     'use strict';
 
-    var player;
+    var playerResults;
 
-    function resetPlayerResults () {
-        player = {
+    function init () {
+        playerResults = initPlayerResults();
+    }
+
+    function initPlayerResults () {
+        return {
             playerOne : {'Won': 0, 'Draw': 0, 'Lost': 0},
             playerTwo : {'Won': 0, 'Draw': 0, 'Lost': 0}
         };
     }
 
-    resetPlayerResults();
-
     function getPlayerResults () {
-        return player;
+        return playerResults;
     }
 
-    function updateGameResults (resultPlayer1) {
+    function updatePlayerResults (resultPlayer1) {
 
         switch (resultPlayer1) {
-        case 'WON':
-            ++player.playerOne.Won;
-            ++player.playerTwo.Lost;
-            break;
-        case 'LOST':
-            ++player.playerOne.Lost;
-            ++player.playerTwo.Won;
-            break;
-        case 'DRAW':
-            ++player.playerOne.Draw;
-            ++player.playerTwo.Draw;
-            break;
+            case 'WON':
+                ++playerResults.playerOne.Won;
+                ++playerResults.playerTwo.Lost;
+                break;
+            case 'LOST':
+                ++playerResults.playerOne.Lost;
+                ++playerResults.playerTwo.Won;
+                break;
+            case 'DRAW':
+                ++playerResults.playerOne.Draw;
+                ++playerResults.playerTwo.Draw;
+                break;
         }
     }
 
     return {
+        init: init,
         getPlayerResults: getPlayerResults,
-        updateGameResults: updateGameResults,
-        resetPlayerResults: resetPlayerResults
+        updatePlayerResults: updatePlayerResults,
+        resetPlayerResults: init
     };
 };
 
-var gameView = puzzle.gameView = function () {
+/**
+ *
+ * File    :
+ * Project : puzzle
+ *
+ * Created by Stephan Koepp on 11/30/13.
+ * Copyright 2013 Stephan Koepp. All rights reserved.
+ *
+ */
+var GameView = function () {
     'use strict';
 
-    function resultDisplay (results) {
-        var resultsPlayerOne, resultsPlayerTwo;
+    var playerMode;
 
-        resultsPlayerOne = '<span class="label label-success">Won : {Won}</span><br/><span class="label label-default">Draw : {Draw}</span><br/><span class="label label-danger">Lost : {Lost}</span>';
-        resultsPlayerTwo = '<span class="label label-success">Won : {Won}</span><br/><span class="label label-default">Draw : {Draw}</span><br/><span class="label label-danger">Lost : {Lost}</span>';
-
-        resultsPlayerOne = resultsPlayerOne.replace(/\{Won\}/g, results.playerOne.Won).replace(/\{Draw\}/g, results.playerOne.Draw).replace(/\{Lost\}/g, results.playerOne.Lost);
-        resultsPlayerTwo = resultsPlayerTwo.replace(/\{Won\}/g, results.playerTwo.Won).replace(/\{Draw\}/g, results.playerTwo.Draw).replace(/\{Lost\}/g, results.playerTwo.Lost);
-
-        $('#playerOne-result').html(resultsPlayerOne);
-        $('#playerTwo-result').html(resultsPlayerTwo);
-
+    function setPlayerMode (mode) {
+        playerMode = mode;
     }
 
-    function selectionDisplay (figureTypes) {
+    function init (playerMode) {
+        setPlayerMode(playerMode);
+    }
 
-        var figure, figureList;
+    function actualGameResultDisplay (element, result) {
+        var person;
 
-        figureList = '';
+        if (playerMode === 'Human') {
+            person = 'You';
+        } else {
+            person = 'Computer 1';
+        }
+
+        switch (result) {
+            case 'WON' :
+                element.html('<div>' + person + ' Won</div>');
+                break;
+            case 'LOST' :
+                element.html('<div>' + person + ' Lost</div>');
+                break;
+            case 'DRAW' :
+                element.html('<div>This was a draw</div>');
+                break;
+            default :
+                element.html('<div>&nbsp;</div>');
+                break;
+        }
+    }
+
+    function headlineDisplay (element) {
+
+        if (playerMode === 'Human') {
+            element.html('<div>You</div><div>Computer</div>');
+        } else {
+            element.html('<div>Computer 1</div><div>Computer 2</div>');
+        }
+    }
+
+    function resultDisplay (element, results) {
+
+        var template, output;
+
+        template = '<div><span class="won">Won : {Won}</span><br/><span class="draw">Draw : {Draw}</span><br/><span class="lost">Lost : {Lost}</span></div>';
+        output = template.replace(/\{Won\}/g, results.playerOne.Won).replace(/\{Draw\}/g, results.playerOne.Draw).replace(/\{Lost\}/g, results.playerOne.Lost);
+        output += template.replace(/\{Won\}/g, results.playerTwo.Won).replace(/\{Draw\}/g, results.playerTwo.Draw).replace(/\{Lost\}/g, results.playerTwo.Lost);
+
+        element.html(output);
+    }
+
+    function showSelectedDisplay (element, valuePlayerOne, valuePlayerTwo) {
+
+        var template, output;
+
+        template ='<div class="title">Seleted items :</div><div class="selections"><span>{playerOne}</span><span>{playerTwo}</span></div>';
+        output = template.replace(/\{playerOne\}/g, valuePlayerOne).replace(/\{playerTwo\}/g, valuePlayerTwo);
+
+        element.html(output);
+    }
+
+    function displayNoSelection () {
+        alert('Please select a item.');
+    }
+
+    function createSelectionButtons (figureTypes) {
+
+        var figure, out;
+
+        out = '';
 
         for (figure in figureTypes) {
             if (figureTypes.hasOwnProperty(figure)) {
-                figureList += '<button type="button" class="btn btn-default" id="' + figureTypes[figure] + '">' + figureTypes[figure] + '</button>';
+                out += '<button type="button" id="' + figureTypes[figure] + '">' + figureTypes[figure] + '</button>';
             }
         }
 
-        $('#playerOne-selection').html(figureList);
-        //$('#playerTwo-selection').html(figureList);
+        return out;
     }
 
-    function updateSelectedValueDisplay (idElement, value) {
-        $(idElement).html(value);
+    function selectionDisplay (figureTypes, element) {
+
+        var figureList;
+
+        figureList = '';
+
+        if (playerMode === 'Human') {
+            figureList += createSelectionButtons(figureTypes);
+        } else {
+            figureList = '&nbsp;';
+        }
+
+        element.html(figureList);
     }
 
     return {
+        init: init,
+        setPlayerMode: setPlayerMode,
+        actualGameResultDisplay: actualGameResultDisplay,
+        headlineDisplay: headlineDisplay,
         resultDisplay: resultDisplay,
+        displayNoSelection: displayNoSelection,
         selectionDisplay: selectionDisplay,
-        updateSelectedValueDisplay: updateSelectedValueDisplay
+        showSelectedDisplay: showSelectedDisplay
     };
 };
 
-var gameController = puzzle.gameController = function () {
+/**
+ *
+ * File    :
+ * Project : puzzle
+ *
+ * Created by Stephan Koepp on 11/30/13.
+ * Copyright 2013 Stephan Koepp. All rights reserved.
+ *
+ */
+var Game = function () {
     'use strict';
 
-    var model, playerModus, playerOne, playerSelection, playerTwo, view;
+    var actualGameResultElement, headlineElement, resultElement, resultModel, selectionDisplayElement, selectionElement, playerMode, playerOne, playerSelection, playerTwo, view;
 
-    playerModus = 'PC';
-    playerSelection = 'Stone';
+    playerMode = 'Human';
+    playerSelection = '';
 
-    function init () {
-        model = new gameModel();
-        view = new gameView();
-        view.selectionDisplay(FigureType);
-        view.updateSelectedValueDisplay('#selectedValuePlayerOne', playerSelection);
+    function init (actualGameResult, headlineElement, resultElement, selectionElement, selectionDisplayElement) {
+
+        setActualGameResultElement(actualGameResult);
+        setHeadlineElement(headlineElement);
+        setResultElement(resultElement);
+        setSelectionElement(selectionElement);
+        setSelectionDisplayElement(selectionDisplayElement);
+
+        resultModel = new GameResultModel();
+        resultModel.init();
+
+        view = new GameView();
+        view.init(playerMode);
+        view.headlineDisplay(getHeadlineElement());
+        view.resultDisplay(getResultElement(), resultModel.getPlayerResults());
+        view.showSelectedDisplay(getSelectionDisplayElement(), '', '');
+        view.selectionDisplay(FigureType, getSelectionElement());
     }
 
-    function play () {
-        var result;
+    function setActualGameResultElement (element) {
+        actualGameResultElement = element;
+    }
 
-        if (playerModus === 'PC') {
-            playerOne = personSelectFigure();
-        } else {
-            playerOne = computerSelectFigure();
+    function getActualGameResultElement (element) {
+        return actualGameResultElement;
+    }
+
+    function setHeadlineElement (element) {
+        headlineElement = element;
+    }
+
+    function getHeadlineElement () {
+        return headlineElement;
+    }
+
+    function setResultElement (element) {
+        resultElement = element;
+    }
+
+    function getResultElement () {
+        return resultElement;
+    }
+
+    function setSelectionElement (element) {
+        selectionElement = element;
+    }
+
+    function getSelectionElement () {
+        return selectionElement;
+    }
+
+    function setSelectionDisplayElement (element) {
+        selectionDisplayElement = element;
+    }
+
+    function getSelectionDisplayElement (element) {
+        return selectionDisplayElement;
+    }
+
+    function getPlayerMode () {
+        return playerMode;
+    }
+
+    function setPlayerMode (modus) {
+        playerMode = modus;
+        view.setPlayerMode(modus);
+        view.actualGameResultDisplay(getActualGameResultElement(), '');
+        view.headlineDisplay(getHeadlineElement());
+    }
+
+    function resetResults () {
+        if (getPlayerMode() === 'Human') {
+            setPlayerSelection('');
         }
-        console.log(playerOne.getName());
-
-
-        playerTwo = computerSelectFigure();
-        console.log(playerTwo.getName());
-        view.updateSelectedValueDisplay('#selectedValuePlayerTwo', playerTwo.getName());
-
-        result = playerOne.determineRoundResult(playerTwo);
-        console.log(result);
-
-        model.updateGameResults(result);
-
-        view.resultDisplay(model.getPlayerResults());
+        resultModel.resetPlayerResults();
+        view.actualGameResultDisplay(getActualGameResultElement(), '');
+        view.resultDisplay(getResultElement(), resultModel.getPlayerResults());
+        view.showSelectedDisplay(getSelectionDisplayElement(), '', '');
     }
 
-    function personSelectFigure () {
-        return FigureFactory.createFigure(playerSelection);
+    function setPlayerSelection (selectKey) {
+        playerSelection = selectKey;
+        view.actualGameResultDisplay(getActualGameResultElement(), '');
+        view.showSelectedDisplay(getSelectionDisplayElement(), selectKey, '');
+    }
+
+    function getPlayerSelection () {
+        return playerSelection;
+    }
+
+    function checkSelectionValue () {
+        if (getPlayerSelection() === '') {
+            view.displayNoSelection();
+            return true;
+        }
+
+        return false;
     }
 
     function computerSelectFigure () {
@@ -791,54 +962,66 @@ var gameController = puzzle.gameController = function () {
         zz = Math.ceil(Math.random() * 3);
 
         switch(zz){
-        case 1:
-            return FigureFactory.createFigure(FigureType.STONE);
-        case 2:
-            return FigureFactory.createFigure(FigureType.PAPER);
-        case 3:
-            return FigureFactory.createFigure(FigureType.SCISSORS);
+            case 1:
+                return FigureFactory.createFigure(FigureType.STONE);
+            case 2:
+                return FigureFactory.createFigure(FigureType.PAPER);
+            case 3:
+                return FigureFactory.createFigure(FigureType.SCISSORS);
         }
 
         return null;
     }
 
-    function resetModel () {
-        model.resetPlayerResults();
-        view.resultDisplay(model.getPlayerResults());
+    function personSelectFigure () {
+        return FigureFactory.createFigure(playerSelection);
     }
 
-    function setPlayerSelection (selectKey) {
-        playerSelection = selectKey;
-    }
+    function play () {
+        var result;
 
-    function setPlayerModus (modeId) {
-        playerModus = modeId;
-    }
+        if (getPlayerMode() === 'Human') {
+            if(checkSelectionValue()) {
+                return;
+            }
+            playerOne = personSelectFigure();
+        } else {
+            playerOne = computerSelectFigure();
+        }
 
-    function getPlayerModus () {
-        return playerModus;
-    }
+        playerTwo = computerSelectFigure();
 
-    function getView () {
-        return view;
+        result = playerOne.determineRoundResult(playerTwo);
+
+        resultModel.updatePlayerResults(result);
+
+        view.actualGameResultDisplay(getActualGameResultElement(), result);
+        view.resultDisplay(getResultElement(), resultModel.getPlayerResults());
+        view.showSelectedDisplay(getSelectionDisplayElement(), playerOne.getName(), playerTwo.getName());
     }
 
     return {
         init: init,
         play: play,
-        resetResults: resetModel,
-        setPlayerModus: setPlayerModus,
-        getPlayerModus: getPlayerModus,
-        setPlayerSelection: setPlayerSelection,
-        getView: getView
+        resetResults: resetResults,
+        setPlayerMode: setPlayerMode,
+        setPlayerSelection: setPlayerSelection
     };
 };
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: skoepp
+ * Date: 25/11/2013
+ * Time: 10:52
+ */
 
 $( document ).ready(function() {
     'use strict';
 
-    var game = new gameController();
-    game.init();
+    var game, view;
+    game = new Game();
+    game.init($('#actual-game-result'), $('#headline'), $('#results'), $('#selection'), $('#selection-display'));
 
     $('#startGame').click(function(){
         game.play();
@@ -849,19 +1032,23 @@ $( document ).ready(function() {
     });
 
     $('.playerModus').click(function(){
-        if (this.id !== game.getPlayerModus()) {
+        if (this.id !== game.getPlayerMode()) {
+            game.setPlayerMode(this.id);
             game.resetResults();
         }
 
-        game.setPlayerModus(this.id);
+        if (this.id === 'Human') {
+            $('#selection').show();
+        } else {
+            $('#selection').hide();
+        }
     });
 
-    $('#playerOne-selection').children('button').click(function(e) {
+    $('#selection').children('button').click(function(e) {
         e.stopPropagation();
         game.setPlayerSelection(this.id);
-        game.getView().updateSelectedValueDisplay('#selectedValuePlayerOne', this.id);
-        game.getView().updateSelectedValueDisplay('#selectedValuePlayerTwo', '');
     });
+
 });
 
 

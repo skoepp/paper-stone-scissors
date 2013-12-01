@@ -6,6 +6,11 @@
  * To change this template use File | Settings | File Templates.
  */
 
+/**
+ * Figure factory
+ *
+ * return:  Firgure object for selected figure type
+ */
 var FigureFactory = {
 
     createFigure: function (figureTyp) {

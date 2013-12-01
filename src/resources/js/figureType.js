@@ -6,6 +6,9 @@
  * To change this template use File | Settings | File Templates.
  */
 
+/**
+ * Enum with figure types
+ */
 var FigureType = {
     STONE : 'Stone',
     PAPER : 'Paper',

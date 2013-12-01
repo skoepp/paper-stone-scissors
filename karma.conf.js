@@ -24,8 +24,12 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'resources/js/*.js',
-            'test/jasmine/specs/*_specs.js'
+            'resources/js/extensions.js',
+            'resources/js/figureType.js',
+            'resources/js/figure.js',
+            'resources/js/figureFactory.js',
+            'resources/js/gameResultModel.js',
+            'test/jasmine/specs/**/*.js'
         ],
 
 

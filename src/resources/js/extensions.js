@@ -3,7 +3,6 @@
  * User: skoepp
  * Date: 25/11/2013
  * Time: 16:19
- * To change this template use File | Settings | File Templates.
  */
 
 /**

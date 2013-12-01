@@ -3,9 +3,16 @@
  * User: skoepp
  * Date: 25/11/2013
  * Time: 16:21
- * To change this template use File | Settings | File Templates.
  */
 
+/**
+ *
+ * Figure object
+ *
+ * @param figureTypeName
+ * @param figureTypeWon
+ * @param figureTypeLost
+ */
 var Figure = function (figureTypeName, figureTypeWon, figureTypeLost) {
 
     'use strict';
@@ -16,7 +23,7 @@ var Figure = function (figureTypeName, figureTypeWon, figureTypeLost) {
     won = figureTypeWon;
     lost = figureTypeLost;
 
-    function _determineRoundResult (figureOponent){
+    function _determineRoundResult (figureOpponent){
 
         var typeWon, typeLost;
 
@@ -25,9 +32,9 @@ var Figure = function (figureTypeName, figureTypeWon, figureTypeLost) {
 
         if (typeWon === '[object Array]' && typeLost === '[object Array]') {
 
-            if (won.contains(figureOponent.getName())) {
+            if (won.contains(figureOpponent.getName())) {
                 return 'WON';
-            } else if (lost.contains(figureOponent.getName())) {
+            } else if (lost.contains(figureOpponent.getName())) {
                 return 'LOST';
             }
 

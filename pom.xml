@@ -47,10 +47,14 @@
                     <jsSrcDir>${project.basedir}/src/resources/js</jsSrcDir>
                     <jsTestSrcDir>${project.basedir}/src/test/jasmine</jsTestSrcDir>
                     <sourceIncludes>
-                        <include>**/*.js</include>
+                        <include>extensions.js</include>
+                        <include>figureType.js</include>
+                        <include>figure.js</include>
+                        <include>figureFactory.js</include>
+                        <include>gameResultModel.js</include>
                     </sourceIncludes>
                     <specIncludes>
-                        <include>specs/*_specs.js</include>
+                        <include>specs/**/*_specs.js</include>
                     </specIncludes>
                 </configuration>
             </plugin>

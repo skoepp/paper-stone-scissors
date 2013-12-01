@@ -27,10 +27,22 @@ module.exports = function(grunt) {
                 src: 'Gruntfile.js'
             },
             src: {
-                src: ['src/resources/js/*.js']
+                src: [
+                    'src/resources/js/extensions.js',
+                    'src/resources/js/figureType.js',
+                    'src/resources/js/figure.js',
+                    'src/resources/js/figureFactory.js',
+                    'src/resources/js/gameResultModel.js',
+                    'src/resources/js/gameView.js',
+                    'src/resources/js/game.js'
+                ]
             },
             test: {
-                src: ['src/test/jasmine/specs/**/*.js']
+                src: [
+                    'src/test/jasmine/specs/figure_specs.js',
+                    'src/test/jasmine/specs/figureFactory_specs.js',
+                    'src/test/jasmine/specs/gameResultModel_specs.js'
+                ]
             }
         },
 
@@ -47,9 +59,12 @@ module.exports = function(grunt) {
                     'src/resources/js/figureType.js',
                     'src/resources/js/figure.js',
                     'src/resources/js/figureFactory.js',
+                    'src/resources/js/gameResultModel.js',
+                    'src/resources/js/gameView.js',
+                    'src/resources/js/game.js',
                     'src/resources/js/puzzle.js'
                 ],
-                dest: 'src/main/webapp/dist/js/<%= pkg.name %>.concat.js'
+                dest: 'src/resources/js/<%= pkg.name %>.concat.js'
             }
         },
 
