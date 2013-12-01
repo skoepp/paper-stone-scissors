@@ -8,6 +8,10 @@ The project was developt with IntelliJ IDEA. During the development a Grunt conf
 
 Start the project by installing nodeJs and Grunt-cli on you development machine.
 
+Go to project folder and Install node modules:
+
+    npm install
+
 You could start the watcher with:
 
     grunt watch
@@ -25,7 +29,7 @@ During the maven build the jasmine tests are executed.
 **Next steps:**
 ==================
 
- 1. Implement inages for the items
+ 1. Implement images for the items
  2. Extend game with Spock and lizard
  3. Create template class
  4. Include grunt build in maven
