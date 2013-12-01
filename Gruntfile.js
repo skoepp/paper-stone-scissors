@@ -1,6 +1,6 @@
 /**
  *
- * File    :
+ * File    : Gruntfile.js
  * Project : puzzle
  *
  * Created by Stephan Koepp on 11/22/13.
