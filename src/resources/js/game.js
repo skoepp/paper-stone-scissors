@@ -1,6 +1,6 @@
 /**
  *
- * File    :
+ * File    : game.js
  * Project : puzzle
  *
  * Created by Stephan Koepp on 11/30/13.
@@ -67,6 +67,8 @@ Game = function () {
 
     /*
      * Getter and setter for player mode
+     *
+     * -> Setter includes display updates
      */
     function getPlayerMode () {
         return playerMode;
@@ -81,15 +83,17 @@ Game = function () {
 
     /*
      * Getter and setter for player selection
+     *
+     * -> Setter includes display updates
      */
+    function getPlayerSelection () {
+        return playerSelection;
+    }
+
     function setPlayerSelection (selectKey) {
         playerSelection = selectKey;
         view.actualGameResultDisplay(getActualGameResultElement(), '');
         view.showSelectedDisplay(getSelectionDisplayElement(), selectKey, '');
-    }
-
-    function getPlayerSelection () {
-        return playerSelection;
     }
 
     /*
@@ -126,7 +130,7 @@ Game = function () {
      */
     function checkSelectionValue () {
         if (getPlayerSelection() === '') {
-            view.displayNoSelection();
+            view.noSelectionDisplay();
             return true;
         }
 
@@ -194,7 +198,7 @@ Game = function () {
         resultModel = new GameResultModel();
         resultModel.init();
 
-        view = new GameView();
+        view = new GameDisplays();
         view.init(playerMode);
         view.headlineDisplay(getHeadlineElement());
         view.resultDisplay(getResultElement(), resultModel.getPlayerResults());

@@ -1,13 +1,14 @@
 /**
  *
- * File    :
+ * File    : gameResultModel.js
  * Project : puzzle
  *
  * Created by Stephan Koepp on 11/30/13.
  * Copyright 2013 Stephan Koepp. All rights reserved.
  *
  */
-var GameResultModel = function () {
+var GameResultModel;
+GameResultModel = function () {
     'use strict';
 
     var playerResults;

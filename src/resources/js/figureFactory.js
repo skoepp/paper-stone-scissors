@@ -1,9 +1,11 @@
 /**
- * Created with IntelliJ IDEA.
- * User: skoepp
- * Date: 25/11/2013
- * Time: 16:22
- * To change this template use File | Settings | File Templates.
+ *
+ * File    : figureFactory.js
+ * Project : puzzle
+ *
+ * Created by Stephan Koepp on 11/30/13.
+ * Copyright 2013 Stephan Koepp. All rights reserved.
+ *
  */
 
 /**

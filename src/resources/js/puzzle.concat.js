@@ -534,11 +534,13 @@ Array.prototype.contains = function (k) {
 };
 
 /**
- * Created with IntelliJ IDEA.
- * User: skoepp
- * Date: 25/11/2013
- * Time: 16:21
- * To change this template use File | Settings | File Templates.
+ *
+ * File    : figureType.js
+ * Project : puzzle
+ *
+ * Created by Stephan Koepp on 11/30/13.
+ * Copyright 2013 Stephan Koepp. All rights reserved.
+ *
  */
 
 /**
@@ -551,10 +553,13 @@ var FigureType = {
 };
 
 /**
- * Created with IntelliJ IDEA.
- * User: skoepp
- * Date: 25/11/2013
- * Time: 16:21
+ *
+ * File    : figure.js
+ * Project : puzzle
+ *
+ * Created by Stephan Koepp on 11/30/13.
+ * Copyright 2013 Stephan Koepp. All rights reserved.
+ *
  */
 
 /**
@@ -632,11 +637,13 @@ var Figure = function (figureTypeName, figureTypeWon, figureTypeLost) {
 };
 
 /**
- * Created with IntelliJ IDEA.
- * User: skoepp
- * Date: 25/11/2013
- * Time: 16:22
- * To change this template use File | Settings | File Templates.
+ *
+ * File    : figureFactory.js
+ * Project : puzzle
+ *
+ * Created by Stephan Koepp on 11/30/13.
+ * Copyright 2013 Stephan Koepp. All rights reserved.
+ *
  */
 
 /**
@@ -664,14 +671,15 @@ var FigureFactory = {
 
 /**
  *
- * File    :
+ * File    : gameResultModel.js
  * Project : puzzle
  *
  * Created by Stephan Koepp on 11/30/13.
  * Copyright 2013 Stephan Koepp. All rights reserved.
  *
  */
-var GameResultModel = function () {
+var GameResultModel;
+GameResultModel = function () {
     'use strict';
 
     var playerResults;
@@ -719,14 +727,15 @@ var GameResultModel = function () {
 
 /**
  *
- * File    :
+ * File    : gameDisplays.js
  * Project : puzzle
  *
  * Created by Stephan Koepp on 11/30/13.
  * Copyright 2013 Stephan Koepp. All rights reserved.
  *
  */
-var GameView = function () {
+var GameDisplays;
+GameDisplays = function () {
     'use strict';
 
     var playerMode;
@@ -794,7 +803,7 @@ var GameView = function () {
         element.html(output);
     }
 
-    function displayNoSelection () {
+    function noSelectionDisplay () {
         alert('Please select a item.');
     }
 
@@ -834,7 +843,7 @@ var GameView = function () {
         actualGameResultDisplay: actualGameResultDisplay,
         headlineDisplay: headlineDisplay,
         resultDisplay: resultDisplay,
-        displayNoSelection: displayNoSelection,
+        noSelectionDisplay: noSelectionDisplay,
         selectionDisplay: selectionDisplay,
         showSelectedDisplay: showSelectedDisplay
     };
@@ -842,7 +851,7 @@ var GameView = function () {
 
 /**
  *
- * File    :
+ * File    : game.js
  * Project : puzzle
  *
  * Created by Stephan Koepp on 11/30/13.
@@ -909,6 +918,8 @@ Game = function () {
 
     /*
      * Getter and setter for player mode
+     *
+     * -> Setter includes display updates
      */
     function getPlayerMode () {
         return playerMode;
@@ -923,15 +934,17 @@ Game = function () {
 
     /*
      * Getter and setter for player selection
+     *
+     * -> Setter includes display updates
      */
+    function getPlayerSelection () {
+        return playerSelection;
+    }
+
     function setPlayerSelection (selectKey) {
         playerSelection = selectKey;
         view.actualGameResultDisplay(getActualGameResultElement(), '');
         view.showSelectedDisplay(getSelectionDisplayElement(), selectKey, '');
-    }
-
-    function getPlayerSelection () {
-        return playerSelection;
     }
 
     /*
@@ -968,7 +981,7 @@ Game = function () {
      */
     function checkSelectionValue () {
         if (getPlayerSelection() === '') {
-            view.displayNoSelection();
+            view.noSelectionDisplay();
             return true;
         }
 
@@ -1036,7 +1049,7 @@ Game = function () {
         resultModel = new GameResultModel();
         resultModel.init();
 
-        view = new GameView();
+        view = new GameDisplays();
         view.init(playerMode);
         view.headlineDisplay(getHeadlineElement());
         view.resultDisplay(getResultElement(), resultModel.getPlayerResults());

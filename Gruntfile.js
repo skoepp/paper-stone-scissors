@@ -33,7 +33,7 @@ module.exports = function(grunt) {
                     'src/resources/js/figure.js',
                     'src/resources/js/figureFactory.js',
                     'src/resources/js/gameResultModel.js',
-                    'src/resources/js/gameView.js',
+                    'src/resources/js/gameDisplays.js',
                     'src/resources/js/game.js'
                 ]
             },
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
                     'src/resources/js/figure.js',
                     'src/resources/js/figureFactory.js',
                     'src/resources/js/gameResultModel.js',
-                    'src/resources/js/gameView.js',
+                    'src/resources/js/gameDisplays.js',
                     'src/resources/js/game.js',
                     'src/resources/js/puzzle.js'
                 ],

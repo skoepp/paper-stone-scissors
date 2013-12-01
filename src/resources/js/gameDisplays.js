@@ -1,13 +1,14 @@
 /**
  *
- * File    :
+ * File    : gameDisplays.js
  * Project : puzzle
  *
  * Created by Stephan Koepp on 11/30/13.
  * Copyright 2013 Stephan Koepp. All rights reserved.
  *
  */
-var GameView = function () {
+var GameDisplays;
+GameDisplays = function () {
     'use strict';
 
     var playerMode;
@@ -75,7 +76,7 @@ var GameView = function () {
         element.html(output);
     }
 
-    function displayNoSelection () {
+    function noSelectionDisplay () {
         alert('Please select a item.');
     }
 
@@ -115,7 +116,7 @@ var GameView = function () {
         actualGameResultDisplay: actualGameResultDisplay,
         headlineDisplay: headlineDisplay,
         resultDisplay: resultDisplay,
-        displayNoSelection: displayNoSelection,
+        noSelectionDisplay: noSelectionDisplay,
         selectionDisplay: selectionDisplay,
         showSelectedDisplay: showSelectedDisplay
     };

@@ -1,8 +1,11 @@
 /**
- * Created with IntelliJ IDEA.
- * User: skoepp
- * Date: 25/11/2013
- * Time: 16:21
+ *
+ * File    : figure.js
+ * Project : puzzle
+ *
+ * Created by Stephan Koepp on 11/30/13.
+ * Copyright 2013 Stephan Koepp. All rights reserved.
+ *
  */
 
 /**
