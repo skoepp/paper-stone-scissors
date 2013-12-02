@@ -16,6 +16,10 @@ You could start the watcher with:
 
     grunt watch
 
+You could start a coverage report with:
+
+    grunt karam-t or grunt karma-w
+
 To create the distribution files Grunt is also used:
 
     grunt dist
