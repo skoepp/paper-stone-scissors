@@ -1,4 +1,4 @@
-**Code Puzzle Project**
+**Paper stone scissors project**
 =======================
 
 The project was developt with IntelliJ IDEA. During the development a Grunt configuration was used that runs jsHint and Karma with jasmine tests for the files. A test coverage report is created locally on your machine in the folder coverage by Istanbul.
