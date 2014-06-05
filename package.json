@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/skoepp/ paper-stone-scissors.git"
+    "url": "https://github.com/skoepp/paper-stone-scissors.git"
   },
   "author": {
     "name": "Stephan Koepp",
@@ -46,6 +46,6 @@
   "readme": "",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/skoepp/ paper-stone-scissors/issues"
+    "url": "https://github.com/skoepp/paper-stone-scissors/issues"
   }
 }
