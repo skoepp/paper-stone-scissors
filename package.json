@@ -1,14 +1,14 @@
 {
-  "name": "puzzle",
-  "version": "0.0.0",
-  "description": "puzzel web app",
+  "name": " paper-stone-scissors",
+  "version": "0.1.0",
+  "description": " paper-stone-scissors web app",
   "main": "index.html",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/skoepp/puzzle.git"
+    "url": "https://github.com/skoepp/ paper-stone-scissors.git"
   },
   "author": {
     "name": "Stephan Koepp",
@@ -46,6 +46,6 @@
   "readme": "",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/skoepp/puzzle/issues"
+    "url": "https://github.com/skoepp/ paper-stone-scissors/issues"
   }
 }
