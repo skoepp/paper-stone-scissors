@@ -3,7 +3,8 @@
 .settings
 .classpath
 
-Gemfile
+_gh_pages
+Gemfile*
 
 # Idea noise
 .idea
