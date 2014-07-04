@@ -1,0 +1,25 @@
+.metadata
+.project
+.settings
+.classpath
+
+_gh_pages
+Gemfile*
+
+# Idea noise
+.idea
+**/.idea
+*.iml
+*.ipr
+*.iws
+
+# Test coverage
+coverage
+
+# Ignore folders
+node_modules
+bower_components
+
+# Ignore compiled files
+target
+
