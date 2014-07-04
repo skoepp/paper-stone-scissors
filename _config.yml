@@ -1,0 +1,8 @@
+# Server
+source:           docs
+destination:      _gh_pages
+host:             0.0.0.0
+port:             9001
+baseurl:          /paper-stone-scissors
+url:              https://http://skoepp.github.io/paper-stone-scissors
+encoding:         UTF-8
