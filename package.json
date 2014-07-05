@@ -1,7 +1,7 @@
 {
-  "name": " paper-stone-scissors",
+  "name": "paper-stone-scissors",
   "version": "0.1.0",
-  "description": " paper-stone-scissors web app",
+  "description": "paper-stone-scissors web app",
   "main": "index.html",
   "scripts": {
     "test": "grunt test"

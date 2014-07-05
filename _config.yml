@@ -4,5 +4,9 @@ destination:      _gh_pages
 host:             0.0.0.0
 port:             9001
 baseurl:          /paper-stone-scissors
-url:              https://http://skoepp.github.io/paper-stone-scissors
+url:              https://skoepp.github.io/paper-stone-scissors
 encoding:         UTF-8
+
+# Custom vars
+current_version:  0.1.0
+repo:             https://github.com/skoepp/paper-stone-scissors
